@@ -89,7 +89,7 @@ def parse_args(argv):
         default=20,
         type=int,
     )
-    parser.add_argument("--checkpoint", type=str, default='vbr_models/tcm_mse_vbr.pth.tar',
+    parser.add_argument("--checkpoint", type=str, default='vbr_models/modnet.pth.tar',
                         help="Path to a checkpoint")
     parser.add_argument("--data", '-d', type=str, default='/backup5/zqge/Kodak/kodak', help="Path to dataset")
     parser.add_argument(
@@ -164,6 +164,7 @@ def blocked_update(net, x, lmd):
     bdrate = (best_loss - loss0) / bpp0
     #print(f'BD-rate after {total_steps:d} steps: {bdrate * 100:.2f}%')
 
+    out_net = net.test_fromlatent(best_y, best_z, lmd_index)
     out_net['x_hat'].clamp_(0, 1)
 
     rate = sum(len(s[0]) for s in out_net["strings"]) * 8.0
