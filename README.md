@@ -12,12 +12,13 @@ End-to-end optimized Learned Image Compression (LIC) has demonstrated remarkable
 ## Training
 `train_latent_e2e.py` is a toy experiment to explore the relationship between latents of different λ, which is not included in the original paper.
 
-train_vbr.py is the main entrance of training, where the user may modify some configurations, e.g. dataset path.
+`train_vbr.py` is the main entry of training, where you may modify some configurations, e.g. dataset path.
 
 
 ## Testing
 `eval_vbr.py` is the test script to evaluate the R-D performance of VBR model, and `online_training_vbr.py` realizes the proposed DLM approach. 
-
+To get the final BD-rate performance, run
+`python online_training_vbr.py -l [0~5] -d [Your dataset directory] `
 
 ## Notes
 This implementation is not original codes of our TCSVT2025 paper, because are rearranged by us. This repo is a re-implementation, but the core codes are almost the same and results are also consistent with original results. 
