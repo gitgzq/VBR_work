@@ -15,9 +15,9 @@ End-to-end optimized Learned Image Compression (LIC) has demonstrated remarkable
 `train_vbr.py` is the main entry of training, where you may modify some configurations, e.g. dataset path.
 
 
-## Testing
-`eval_vbr.py` is the test script to evaluate the R-D performance of VBR model, and `online_training_vbr.py` realizes the proposed DLM approach. 
-To get the final BD-rate performance, run
+## Weights and Testing
+The pretrained weight is available at `https://drive.google.com/file/d/13A88JG5rzH5BHn1TEn6GhCfyrfahgQ_L/view?usp=drive_link`. 
+To evaluate this model, downloat it and put it under `vbr_models/`, then run
 
 `python online_training_vbr.py -l [0~5] -d [Your dataset directory]`.
 
